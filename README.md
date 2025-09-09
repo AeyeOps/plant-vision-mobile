@@ -19,6 +19,20 @@ Serving the industrial plant sector:
 - **Chemical Process** facilities  
 - **Engineering & Construction** projects
 
+## Target Users
+
+### Primary Users
+- **Field Engineers** - Verify as-built conditions against design models
+- **Safety Inspectors** - Conduct compliance checks and safety audits  
+- **QA/QC Inspectors** - Perform quality checks and create punch lists
+- **Maintenance Teams** - Track equipment status and maintenance history
+
+### User Environment
+- Industrial construction sites with limited connectivity
+- Power plants and refineries with security restrictions
+- Offshore platforms with no internet access
+- Remote facility areas requiring offline functionality
+
 ## Business Value
 
 - **Tag-Centric Asset Management** - Instantly access all references to pumps, valves, and instruments
@@ -26,6 +40,29 @@ Serving the industrial plant sector:
 - **Seamless Integration** - Syncs with Plant Vision platform for unified project data
 - **Compliance Tracking** - Maintain inspection history and audit trails for regulatory requirements
 - **Real-Time Data Capture** - Record temperature, pressure, flow, and vibration readings on-site
+
+## Key Use Cases
+
+### Quick Tag Inspection
+1. Scan QR/barcode on equipment tag
+2. View specifications and maintenance history
+3. Record current readings and observations
+4. Add photos of equipment condition
+5. Auto-sync when connection available
+
+### Punch List Management
+1. Identify issues during field inspection
+2. Document with photos and descriptions
+3. Assign priority and category
+4. Tag location on 3D model
+5. Track resolution status
+
+### As-Built Verification
+1. Access 3D models offline in the field
+2. Compare actual installation to design
+3. Document discrepancies
+4. Create RFIs for clarification
+5. Update project records
 
 ## Key Features
 
@@ -38,10 +75,12 @@ Serving the industrial plant sector:
 ### Core Capabilities
 - **Equipment Tag Scanning** - QR/barcode scanning for pumps, valves, instruments (e.g., PMP-2001-A, VLV-3042-B)
 - **3D Model Viewer** - Interactive visualization of refinery units, distillation columns, and process equipment
-- **Inspection Workflows** - Capture readings for temperature, pressure, flow rate, and vibration
-- **Photo Documentation** - Document equipment condition with annotated images
+- **Inspection Workflows** - Digital checklists and forms for capturing equipment readings
+- **Punch List Creation** - Document issues with photos, priority assignment, and location tagging
+- **Data Collection** - Record temperature, pressure, flow rate, and vibration readings
+- **Photo Documentation** - Capture and annotate equipment condition with timestamped images
 - **P&ID Integration** - Reference piping and instrumentation diagrams in the field
-- **Automatic Sync** - Seamless data synchronization with Plant Vision platform when online
+- **Offline Queue Management** - All changes cached locally and synced when connection restored
 
 ### Performance
 - **Lightning fast** - Sub-second page loads with intelligent caching
@@ -246,6 +285,22 @@ CMD ["npm", "run", "preview"]
 | Time to Interactive | < 2.0s | 1.5s |
 | Lighthouse Score | > 90 | 95 |
 | Bundle Size (gzipped) | < 200KB | 156KB |
+| Offline Mode | Full functionality | ✓ |
+| Touch Response | < 100ms | ✓ |
+
+## Device Requirements
+
+### Recommended
+- **Tablets**: iPad Pro, Surface Pro for optimal 3D viewing
+- **Phones**: iPhone 12+, modern Android devices
+- **RAM**: 4GB minimum for smooth 3D performance
+- **Storage**: 1GB available for offline model caching
+
+### Browser Support
+- Chrome 100+
+- Safari 15+
+- Edge 100+
+- Firefox 100+
 
 ## Security
 

@@ -37,10 +37,24 @@ export const preloadImage = (src: string) => {
   });
 };
 
+// Define route modules explicitly for proper Vite handling
+const routeModules: Record<string, () => Promise<any>> = {
+  'Dashboard': () => import('../pages/Dashboard.tsx'),
+  'Scanner': () => import('../pages/Scanner.tsx'),
+  'Viewer3D': () => import('../pages/Viewer3D.tsx'),
+  'Inspections': () => import('../pages/Inspections.tsx'),
+  'Settings': () => import('../pages/Settings.tsx'),
+  'Sync': () => import('../pages/Sync.tsx')
+};
+
 export const preloadRoutes = async (routes: string[]) => {
   const preloadPromises = routes.map(route => {
-    // Dynamically import route components
-    return lazyWithRetry(() => import(`../pages/${route}`));
+    const loader = routeModules[route];
+    if (!loader) {
+      console.warn(`Route "${route}" not found in route modules`);
+      return Promise.resolve();
+    }
+    return lazyWithRetry(loader);
   });
 
   try {

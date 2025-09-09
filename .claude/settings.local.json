@@ -4,7 +4,8 @@
       "Bash(pnpm add:*)",
       "Bash(pnpm run build:*)",
       "mcp__replicate__create_predictions",
-      "mcp__perplexity-advanced-mcp__ask_perplexity"
+      "mcp__perplexity-advanced-mcp__ask_perplexity",
+      "mcp__qdrant-docs__qdrant-store"
     ],
     "deny": [],
     "ask": []
