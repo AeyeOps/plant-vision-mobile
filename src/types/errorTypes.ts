@@ -1,0 +1,1 @@
+export type ErrorContext = 'Route Preloading' | 'Network Error' | 'API Request' | 'Authentication' | 'Data Processing' | 'Unknown';

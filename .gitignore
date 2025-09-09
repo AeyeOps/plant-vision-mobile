@@ -1,0 +1,82 @@
+# Dependencies
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build outputs
+dist/
+dist-ssr/
+dev-dist/
+build/
+out/
+*.local
+
+# IDE and editor files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+.cache/
+@/
+
+# Test files and coverage
+test-*.js
+pwa-test.js
+*.test.js
+coverage/
+*.lcov
+.nyc_output/
+
+# Generated files
+repomix-output.*
+package-lock.json
+
+# PWA specific
+sw.js
+workbox-*.js
+
+# Mobile development (if ever needed)
+*.apk
+*.ipa
+*.aab
+.gradle/
+local.properties
+
+# Cursor and Windsurf specific
+.cursor/
+.windsurfrules

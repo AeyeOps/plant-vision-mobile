@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Industrial Happy Theme - Light Mode with Better Contrast */
+    --background: 0 0% 97%;  /* Slightly off-white background */
+    --foreground: 240 10% 3.9%;
+    
+    /* Safety Orange - Primary (more vibrant) */
+    --primary: 25 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Steel Blue - Secondary (deeper) */
+    --secondary: 199 85% 42%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Safety Green - Success/Accent (richer) */
+    --accent: 142 65% 40%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* UI Elements with subtle gray background */
+    --card: 210 20% 99%;  /* Very subtle blue-gray tint for cards */
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    
+    /* Neutral/Muted with more contrast */
+    --muted: 240 6% 92%;  /* Darker muted background */
+    --muted-foreground: 240 5% 35%;  /* Darker muted text */
+    
+    /* Destructive/Error */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Borders and Inputs - more visible */
+    --border: 240 8% 85%;  /* Darker borders */
+    --input: 240 8% 85%;  /* Darker input borders */
+    --ring: 25 100% 50%;
+    
+    /* Border Radius */
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    --primary: 25 95% 53%;
+    --primary-foreground: 240 10% 3.9%;
+    
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 240 10% 3.9%;
+    
+    --accent: 142 71% 45%;
+    --accent-foreground: 240 10% 3.9%;
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 25 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Global box-sizing reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Responsive root styles */
+  :root {
+    --viewport-width: 100vw;
+    --viewport-height: 100vh;
+  }
+  
+  @supports (width: 100dvw) {
+    :root {
+      --viewport-width: 100dvw;
+      --viewport-height: 100dvh;
+    }
+  }
+}
+
+/* Mobile-first responsive utilities */
+@layer utilities {
+  .touch-target {
+    @apply min-h-[48px] min-w-[48px];
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Viewport and responsive fixes - shadcn/ui way */
+@layer base {
+  :root {
+    --vh: 1vh;
+    --vw: 1vw;
+  }
+  
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;  /* Prevent any scrolling on html */
+  }
+  
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;  /* Prevent any scrolling on body */
+  }
+  
+  #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;  /* Prevent any scrolling on root */
+  }
+  
+  /* Ensure canvas resizes properly */
+  canvas {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* Dynamic height for main content */
+  .h-dynamic {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  .min-h-dynamic {
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  /* Override Tailwind utilities with viewport-aware units */
+  .h-screen {
+    height: calc(var(--vh, 1vh) * 100) !important;
+  }
+  
+  .min-h-screen {
+    min-height: calc(var(--vh, 1vh) * 100) !important;
+  }
+}
+
+/* Container responsive sizing - shadcn/ui pattern */
+@layer components {
+  .container {
+    @apply mx-auto w-full px-4;
+  }
+  
+  @media (min-width: 640px) {
+    .container {
+      @apply px-6;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      @apply px-8;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container {
+      @apply px-10;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .container {
+      @apply px-12;
+    }
+  }
+}
+
+/* Enhanced component styles for better visibility - theme aware */
+@layer components {
+  /* Make cards stand out more in both themes */
+  .card {
+    @apply shadow-md border-2 border-border;
+  }
+  
+  /* Make buttons more prominent */
+  button {
+    @apply shadow-sm hover:shadow-md transition-shadow;
+  }
+  
+  /* Bottom navigation - fully theme aware */
+  nav {
+    @apply border-t-2 border-border bg-background shadow-lg;
+  }
+  
+  /* Responsive text sizing */
+  .responsive-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+  
+  /* Responsive padding */
+  .responsive-padding {
+    @apply p-2 sm:p-3 md:p-4 lg:p-6;
+  }
+  
+  /* Responsive grid */
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+}
